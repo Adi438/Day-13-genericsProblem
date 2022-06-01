@@ -6,18 +6,20 @@ namespace TestMaximumNumber
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Maximum Number From Three Integer Number Using Generic Class And Method with IComparable\n");
-            RefactorGenericMax<int> refactorInt = new RefactorGenericMax<int>(12, 23, 45);
-            refactorInt.MaxMethod();
 
+            Console.WriteLine("Enter Length of Array");
+            int len = int.Parse(Console.ReadLine());
+            int[] arr = new int[len];
+            Console.WriteLine("Enter elements of array");
+            for (int i = 0; i < arr.Length; i++)
+            {
+                arr[i] = int.Parse(Console.ReadLine());
+            }
 
-            Console.WriteLine("Maximum Number From Three Float Number Using Generic Class And Method with IComparable\n");
-            RefactorGenericMax<double> refactorDouble = new RefactorGenericMax<double>(12.52, 23.56, 4.45);
-            refactorDouble.MaxMethod();
-
-            Console.WriteLine("Maximum Number From Three Float Number Using Generic Class And Method with IComparable\n");
-            RefactorGenericMax<string> refactorString = new RefactorGenericMax<string>("A", "B", "C");  //we can write number also in string
-            refactorString.MaxMethod();
+            MaxMethodUsingGenerics<int> gen = new MaxMethodUsingGenerics<int>(arr);
+            gen.MaxValue();
+            gen.MaxMethod();
+            gen.MaxPrint();
         }
     }
 }
